@@ -1,0 +1,7 @@
+{
+  "name": "Uniti",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
