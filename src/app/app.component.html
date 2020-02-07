@@ -1,24 +1,27 @@
 <ion-app>
-  <ion-split-pane contentId="main-content">
-    <!-- <ion-menu contentId="main-content" type="overlay">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Menu</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-      </ion-content>
-    </ion-menu> -->
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-  </ion-split-pane>
+  <ng-container *ngIf="!pageIsLoading; else init">
+    <ion-header>
+      <ion-toolbar color="clear"></ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <section>
+        <h2>Reload Unyti</h2>
+        <ion-button 
+          [disabled]="loading"
+          size="large"
+          fill="outline"
+          shape="rounded"
+          color="primary"
+          (click)="reload()">
+          <span *ngIf="!loading">Reload</span>
+          <ion-spinner *ngIf="loading" color="primary"></ion-spinner>
+        </ion-button>
+      </section>
+    </ion-content>
+  </ng-container>
+  <ng-template #init>
+    <section>
+      <ion-spinner color="primary"></ion-spinner>
+    </section>
+  </ng-template>
 </ion-app>

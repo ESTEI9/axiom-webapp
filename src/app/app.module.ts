@@ -7,7 +7,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
   ],
   providers: [
     StatusBar,
