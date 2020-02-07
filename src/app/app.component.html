@@ -1,20 +1,27 @@
 <ion-app>
-  <ion-header>
-    <ion-toolbar color="clear"></ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">
+  <ng-container *ngIf="!pageIsLoading; else init">
+    <ion-header>
+      <ion-toolbar color="clear"></ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <section>
+        <h2>Reload Unyti</h2>
+        <ion-button 
+          [disabled]="loading"
+          size="large"
+          fill="outline"
+          shape="rounded"
+          color="primary"
+          (click)="reload()">
+          <span *ngIf="!loading">Reload</span>
+          <ion-spinner *ngIf="loading" color="primary"></ion-spinner>
+        </ion-button>
+      </section>
+    </ion-content>
+  </ng-container>
+  <ng-template #init>
     <section>
-      <h2>Reload Unyti</h2>
-      <ion-button 
-        [disabled]="loading"
-        size="large"
-        fill="outline"
-        shape="rounded"
-        color="primary"
-        (click)="reload()">
-        <span *ngIf="!loading">Reload</span>
-        <ion-spinner *ngIf="loading" color="primary"></ion-spinner>
-      </ion-button>
+      <ion-spinner color="primary"></ion-spinner>
     </section>
-  </ion-content>
+  </ng-template>
 </ion-app>

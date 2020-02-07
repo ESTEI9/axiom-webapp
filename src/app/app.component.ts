@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { Platform, ToastController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
 
+  private pageIsLoading = true;
   private loading = true;
 
   constructor(
@@ -29,6 +31,7 @@ export class AppComponent {
       this.loadSite().then((resp: any) => {
         this.splashScreen.hide();
         this.loading = false;
+        this.pageIsLoading = false;
         if (resp !== true) {
           this.errorToast();
         }
